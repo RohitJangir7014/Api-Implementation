@@ -14,3 +14,14 @@ const addTodos = ()=>{
     }
 }
 ```
+## create code for headers
+```
+const addTodos = ()=>{
+    try{
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type","application/json");
+    }catch(e){
+        console.log(e)
+    }
+}
+```
