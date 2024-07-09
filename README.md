@@ -42,4 +42,27 @@ const addTodos = ()=>{
     }
 }
 ```
+## also send the body and headers with the api
+```
+const addTodos = ()=>{
+    try{
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type","application/json");
+
+        const raw = JSON.stringify({
+            name:todo
+        })
+
+        const requestOptions = {
+            method:"POST",
+            body:raw,
+            headers:myHeaders
+        }
+
+        fetch('http://localhost:3000',requestOptions)
+    }catch(e){
+        console.log(e)
+    }
+}
+```
 
