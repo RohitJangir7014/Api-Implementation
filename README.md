@@ -25,3 +25,21 @@ const addTodos = ()=>{
     }
 }
 ```
+## now use the fetch method (note : fetch method accept 2 parameters ('url',{additional information}))
+```
+const addTodos = ()=>{
+    try{
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type","application/json");
+
+        const requestOptions = {
+            method:"POST"
+        }
+
+        fetch('http://localhost:3000',requestOptions)
+    }catch(e){
+        console.log(e)
+    }
+}
+```
+
