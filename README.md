@@ -36,7 +36,7 @@ const addTodos = ()=>{
             method:"POST"
         }
 
-        fetch('http://localhost:3000',requestOptions)
+        fetch('hhttp://localhost:7000/addtodos',requestOptions)
     }catch(e){
         console.log(e)
     }
@@ -59,10 +59,40 @@ const addTodos = ()=>{
             headers:myHeaders
         }
 
-        fetch('http://localhost:3000',requestOptions)
+        fetch('http://localhost:7000/addtodos',requestOptions)
     }catch(e){
         console.log(e)
     }
 }
 ```
+## after this use the .then method
+```
+const addTodos = ()=>{
+    try{
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type","application/json");
+
+        const raw = JSON.stringify({
+            name:todo
+        })
+
+        const requestOptions = {
+            method:"POST",
+            body:raw,
+            headers:myHeaders
+        }
+
+        fetch('http://localhost:7000/addtodos',requestOptions)
+        .then((response)=>{return response.json()})
+    .then((result)=>{
+      if(result.status==="001"){
+        getTodos();
+      }
+    })
+    }catch(e){
+        console.log(e)
+    }
+}
+```
+
 
